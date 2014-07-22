@@ -43,7 +43,7 @@ module.exports = function(grunt){
         }
     });
 
-    grunt.registerTask('default', ['jasmine_node']);
+    grunt.registerTask('default', ['mochacli']);
     grunt.registerTask('mocha', ['mochacli']);
 
 

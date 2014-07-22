@@ -16,66 +16,66 @@ describe("fromAnnotatedFileUtilsSpec", function(){
     describe("getOptionsFromString", function(){
         it("should be able to get options from a string", function(){
             var result = utils.getOptionsFromString("test.js", {});
-            expect(result.filename).toBe("test.js");
+            expect(result.filename).to.equal("test.js");
         });
         it("should be able to get options from a string with defaults passed", function(){
            var result = utils.getOptionsFromString("test.js", {someOption: true});
-            expect(result.someOption).toBe(true);
+            expect(result.someOption).to.be.true;
         });
     });
 
     describe("getOptionsFromObject", function(){
         it("should be able to get options from an object", function(){
             var result = utils.getOptionsFromObject({filename: "test"});
-            expect(result.filename).toBe("test");
+            expect(result.filename).to.equal("test");
         });
 
         it("should throw an error if filename option isn't set", function(){
            expect(function(){
             var result = utils.getOptionsFromObject({blah: "blah"});
-           }).toThrow();
+           }).to.throw(/Filename option must be specified/);
         });
 
         it("should be able to get options from an object with defaults", function(){
            var result = utils.getOptionsFromObject({filename: "test", someOption: true});
-           expect(result.someOption).toBe(true);
-           expect(result.filename).toBe("test");
+           expect(result.someOption).to.be.true;
+           expect(result.filename).to.equal("test");
         });
     });
 
     describe("getOptions", function(){
        it("should be able to get options from a string", function(){
           var result = utils.getOptions("test.js");
-          expect(result.filename).toBe("test.js");
+          expect(result.filename).to.equal("test.js");
        });
 
        it("should be able to get options from an object", function(){
           var result = utils.getOptions({filename: "test.js"});
-          expect(result.filename).toBe("test.js");
+          expect(result.filename).to.equal("test.js");
        });
 
        it("should throw an error if no filename is specified", function(){
           expect(function(){
               utils.getOptions();
-          }).toThrow();
+          }).to.throw(/Filename option must be specified/);
        });
 
        it("should throw an error if no filename property is specified", function(){
           expect(function(){
               utils.getOptions({blah: "blah"});
-          }).toThrow();
+          }).to.throw(/Filename option must be specified/);
        });
 
        it("should be able to get options from an object with defaults", function(){
           var result = utils.getOptions({filename: "test.js", blah: "notblah"}, {blah: "blah"});
-          expect(result.filename).toBe("test.js");
-          expect(result.blah).toBe("notblah");
+          expect(result.filename).to.equal("test.js");
+          expect(result.blah).to.equal("notblah");
        });
 
        it("should be able to get options from a string with defaults", function(){
           var result = utils.getOptions("test.js", {blah: "blah"});
-           expect(result.filename).toBe("test.js");
-           expect(result.blah).toBe("blah");
+           expect(result.filename).to.equal("test.js");
+           expect(result.blah).to.equal("blah");
        });
     });
 

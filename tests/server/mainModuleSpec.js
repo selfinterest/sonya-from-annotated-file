@@ -11,6 +11,6 @@ describe("from annotated file main module", function(){
    });
 
    it("should have added a provider to sonya", function(){
-      expect(sonya.Provide.fromAnnotatedFile).toBeDefined();
+      expect(sonya.Provide.fromAnnotatedFile).to.not.be.undefined;
    });
 });

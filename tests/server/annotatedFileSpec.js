@@ -6,7 +6,7 @@
 
 
 
-var rewire = require("rewire"), fs = require("fs"), chaiExpect = require("chai").expect;
+var rewire = require("rewire"), fs = require("fs");
 
 describe("Annotatedfile class", function(){
 
@@ -40,22 +40,21 @@ describe("Annotatedfile class", function(){
 
 
     it("should have a method that can get path and filename information for a file", function(){
-       expect(annotatedFile.filename).toBe("someModule.js");
-       expect(annotatedFile.fullFilenameAndPath).toBe("/home/terrence/someModule.js");
+       expect(annotatedFile.filename).to.equal("someModule.js");
+       expect(annotatedFile.fullFilenameAndPath).to.equal("/home/terrence/someModule.js");
     });
 
     it("should have a method that can read and parse the file", function(){
-        expect(Array.isArray(annotatedFile.body)).toBe(true);
-        expect(annotatedFile.body.length).toBe(3);
-        expect(Array.isArray(annotatedFile.comments)).toBe(true);
-        expect(annotatedFile.comments.length).toBe(3);
+        expect(Array.isArray(annotatedFile.body)).to.be.true;
+        expect(annotatedFile.body.length).to.equal(3);
+        expect(Array.isArray(annotatedFile.comments)).to.be.true;
+        expect(annotatedFile.comments.length).to.equal(3);
     });
 
     it("should have a method that can parse the comments", function(){
-       expect(annotatedFile.parsedComments).toBeDefined();
-       expect()
-       expect(annotatedFile.parsedComments.length).toBe(3);
-       expect(annotatedFile.parsedComments[0]).toEqual()
+       expect(annotatedFile.parsedComments).to.be.an("array");
+       expect(annotatedFile.parsedComments.length).to.equal(3);
+       expect(annotatedFile.parsedComments[0]).to.contain.keys("text", "range", "lines");
     });
 
 

@@ -10,6 +10,6 @@ describe("from annotated file", function(){
        baProvider = require("../../lib/from-annotated-file.js");
     });
     it("should exist", function(){
-       expect(typeof baProvider).toBe("function");
+       expect(baProvider).to.be.a("function");
     });
 });

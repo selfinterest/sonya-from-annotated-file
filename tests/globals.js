@@ -8,4 +8,16 @@
     This file is included in all tests. It globalizes the assertion library (and anything else.)
  */
 
+var chai = require("chai");
+var sinonChai = require("sinon-chai");
+chai.use(sinonChai);
+
+//Chai expectations
 global.expect = require("chai").expect;
+
+//Sinon for spying
+global.sinon = require("sinon");
+
+//Rewire for mocking and such
+global.rewire = require("rewire");
+
